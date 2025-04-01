@@ -8,15 +8,26 @@ public class Product {
         return a * b;
     }
 
-    public static double tripleRealProduct(int a, double b, double c) {
+    public static double tripleRealProduct(double a, double b, double c) {
         return a * b * c;
     }
 
-    public static int pow(int base, int exponent) {
-        int res = 1;
-        for (int i = 0; i < exponent; i++) {
-            res*= base;
+    public static double pow(int base, int exponent) {
+
+        if(exponent == 0) {
+            return 1;
+        }else {
+            double res = 1;
+            int absExponent = Math.abs(exponent);
+            for (int i = 0; i < absExponent; i++) {
+                res*= base;
+            }
+            if(exponent < 0) {
+                return 1.0/res;
+            }else{
+                return res;
+            }
         }
-        return res;
+
     }
 }
